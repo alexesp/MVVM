@@ -7,8 +7,8 @@
              Title="LoginPage">
     <VerticalStackLayout>
         <Entry Placeholder="User Name"
-               Text="{Binding UserName}"></Entry>
-        <Label Text="{Binding UserName}"></Label>
-        <Button Text="Login" Command="{Binding SignInCommand}"></Button>
+               Text="{Binding Username}"></Entry>
+        <Label Text="{Binding Username}"></Label>
+        <Button Text="Login" Command="{Binding LoginCommand}"></Button>
     </VerticalStackLayout>
 </ContentPage>

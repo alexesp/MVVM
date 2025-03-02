@@ -4,40 +4,57 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace MVVM.ViewModels
 {
-    class LoginViewModel: INotifyPropertyChanged
+    //Sin community toolkit----------------------------------------------
+    // class LoginViewModel: INotifyPropertyChanged
+    //Con community toolkit -------------------------------------------------
+    internal partial class LoginViewModel : ObservableObject
     {
-        public Command SignInCommand { get; set; }
-        private string username;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public string UserName
+        //Con community toolkit -------------------------------------------------
+        [ObservableProperty]
+        string username;
+        [RelayCommand]
+        private void Login()
         {
-            get { return username; }
-            set
-            {
-                username = value;
-                OnPropertyChanged("UserName");
-            }
+           
         }
 
 
-        public LoginViewModel()
-        {
-            SignInCommand = new Command(SignIn);
-        }
+        //Sin community toolkit----------------------------------------------
 
-        private void SignIn(object obj)
-        {
-            var user = UserName;
-        }
+        //public Command SignInCommand { get; set; }
+        //private string username;
 
-        void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        //public event PropertyChangedEventHandler? PropertyChanged;
+
+        //public string UserName
+        //{
+        //    get { return username; }
+        //    set
+        //    {
+        //        username = value;
+        //        OnPropertyChanged("UserName");
+        //    }
+        //}
+        //public LoginViewModel()
+        //{
+        //    SignInCommand = new Command(SignIn);
+        //}
+        //private void SignIn(object obj)
+        //{
+        //    var user = UserName;
+        //}
+        //void OnPropertyChanged(string name)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        //}
+
+
+
+
     }
 }
